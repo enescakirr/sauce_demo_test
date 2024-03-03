@@ -11,6 +11,7 @@ class LoginPage(BasePage):
     user_name = (By.ID, 'user-name')
     password = (By.ID, 'password')
     login_button = (By.ID, 'login-button')
+    error_container = (By.CLASS_NAME, 'error-message-container')
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -29,3 +30,6 @@ class LoginPage(BasePage):
     def click_login_button(self):
         self.driver.find_element(*self.login_button).click()
         return HomePage(self.driver)
+
+    def error_message(self):
+        return self.driver.find_element(*self.error_container).text

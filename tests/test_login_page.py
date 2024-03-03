@@ -31,3 +31,13 @@ class TestLoginPage:
         home_page = login_page.click_login_button()
         home_page.wait_element_load()
         assert home_page.logo_element().text == "Swag Labs", "Login failed with correct username and password!"
+
+    def test_login_with_correct_username_and_wrong_password(self, driver):
+        base_page = BasePage(driver)
+        base_page.goto_page()
+        login_page = LoginPage(driver)
+        login_page.wait_element_load()
+        login_page.input_username("standard_user")
+        login_page.input_password("wrong_password")
+        login_page.click_login_button()
+        assert login_page.error_message() == "Epic sadface: Username and password do not match any user in this service", "Login failed with correct username and password!"
