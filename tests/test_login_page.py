@@ -5,12 +5,10 @@ from selenium import webdriver
 from pages.login_page import LoginPage
 from base.base_page import BasePage
 
-# config = configparser.ConfigParser()
-# config.read('config.ini')
-#
-# browser = config.get('WebDriverSettings', 'browser').lower()
+config = configparser.ConfigParser()
+config.read('config.ini')
 
-browser = 'chrome'
+browser = config.get('WebDriverSettings', 'browser').lower()
 
 
 class TestLoginPage:
