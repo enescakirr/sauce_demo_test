@@ -6,7 +6,7 @@ from pages.login_page import LoginPage
 from base.base_page import BasePage
 
 config = configparser.ConfigParser()
-config.read('/requirements/config.ini')
+config.read('config.ini')
 
 browser = config.get('WebDriverSettings', 'browser').lower()
 
