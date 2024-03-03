@@ -40,4 +40,4 @@ class TestLoginPage:
         login_page.input_username("standard_user")
         login_page.input_password("wrong_password")
         login_page.click_login_button()
-        assert login_page.error_message() == "Epic sadface: Username and password do not match any user in this service", "Login failed with correct username and password!"
+        assert login_page.error_message() == "Epic sadface: Username and password do not match any user in this service", "Login failed with correct username and wrong password!"
