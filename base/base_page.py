@@ -36,4 +36,3 @@ class BasePage(object):
             return True
         except ElementNotVisibleException:
             return False
-
