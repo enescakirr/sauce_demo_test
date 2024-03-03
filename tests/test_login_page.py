@@ -1,28 +1,23 @@
 import pytest
-import configparser
 
 from selenium import webdriver
 from pages.login_page import LoginPage
 from base.base_page import BasePage
-
-config = configparser.ConfigParser()
-config.read('config.ini')
-
-browser = config.get('WebDriverSettings', 'browser').lower()
 
 
 class TestLoginPage:
 
     @pytest.fixture(scope="module")
     def driver(self):
-        if browser == 'chrome':
+        login_page = LoginPage(BasePage)
+        if login_page.read_config() == 'chrome':
             driver = webdriver.Chrome()
-        elif browser == 'firefox':
+        elif login_page.read_config() == 'firefox':
             driver = webdriver.Firefox()
-        elif browser == 'safari':
+        elif login_page.read_config() == 'safari':
             driver = webdriver.Safari()
         else:
-            print(f'Browser {browser} not supported this software!')
+            print(f'Browser {login_page.read_config()} not supported this software!')
         driver.maximize_window()
         yield driver
 
