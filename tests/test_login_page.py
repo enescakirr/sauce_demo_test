@@ -7,7 +7,7 @@ from base.base_page import BasePage
 
 # config = configparser.ConfigParser()
 # config.read('config.ini')
-
+#
 # browser = config.get('WebDriverSettings', 'browser').lower()
 
 browser = 'chrome'
