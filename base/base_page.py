@@ -1,6 +1,8 @@
 from selenium.common import NoSuchElementException, ElementNotVisibleException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import configparser
+import os
 
 
 class BasePage(object):
@@ -8,6 +10,13 @@ class BasePage(object):
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebDriverWait(self.driver, 10)
+
+    def read_config(self):
+        script_directory = os.path.dirname(os.path.abspath(__file__))
+        config_file_path = os.path.join(script_directory, '../requirements/config.ini')
+        config = configparser.ConfigParser()
+        config.read(config_file_path)
+        return config.get('WebDriverSettings', 'browser').lower()
 
     def driver(self):
         return self.driver()
