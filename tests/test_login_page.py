@@ -36,17 +36,3 @@ class TestLoginPage:
         home_page = login_page.click_login_button()
         home_page.wait_element_load()
         assert home_page.logo_element().text == "Swag Labs", "Login failed with correct username and password!"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
