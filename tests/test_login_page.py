@@ -41,3 +41,13 @@ class TestLoginPage:
         login_page.input_password("wrong_password")
         login_page.click_login_button()
         assert login_page.error_message() == "Epic sadface: Username and password do not match any user in this service", "Login failed with correct username and wrong password!"
+
+    def test_login_with_correct_username_and_empty_password(self,driver):
+        base_page = BasePage(driver)
+        base_page.goto_page()
+        login_page = LoginPage(driver)
+        login_page.wait_element_load()
+        login_page.input_username("standard_user")
+        login_page.input_password("")
+        login_page.click_login_button()
+        assert login_page.error_message() == "Epic sadface: Password is required", "Login failed with correct username and empty password!"
