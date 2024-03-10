@@ -41,5 +41,5 @@ pipeline {
                 echo 'Automation Process finished..'
             }
         }
-
     }
+}
