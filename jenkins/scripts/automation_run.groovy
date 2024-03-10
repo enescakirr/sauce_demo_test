@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DEVELOPER_BRANCH = 'develop'
-        BRANCH = '${BRANCH_NAME}'
+        BRANCH = 'Branch#1'
         ANSIBLE_FORCE_COLOR = 'true'
     }
 
@@ -17,7 +17,7 @@ pipeline {
 
         }
 
-        stage("Set Panding Status") {
+        stage("Set Pending Status") {
             steps {
                 script {
                     sh 'echo "Pending"'
@@ -38,7 +38,7 @@ pipeline {
     }
     post {
         always {
-            echo 'Automation Process Finihed!'
+            echo 'Automation Process Finished!'
         }
     }
 }
