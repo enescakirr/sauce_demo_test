@@ -17,7 +17,6 @@ class BasePage(object):
         config = configparser.ConfigParser()
         config.read(config_file_path)
         return config.get('WebDriverSettings', 'browser').lower()
-
     def driver(self):
         return self.driver()
 
