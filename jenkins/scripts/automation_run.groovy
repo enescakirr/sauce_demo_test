@@ -27,7 +27,7 @@ pipeline {
 
         stage("Automation Process") {
             steps {
-                scripts {
+                script {
                     sh 'echo "Automation Process"'
                     sh 'echo "Branch: $(BRANCH)"'
                     sh 'echo "Developer Branch: $(DEVELOPER_BRANCH)"'
