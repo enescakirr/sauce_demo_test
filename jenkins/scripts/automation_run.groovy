@@ -36,9 +36,4 @@ pipeline {
             }
         }
     }
-    post {
-        always {
-            echo 'Automation Process Finished!'
-        }
-    }
 }
