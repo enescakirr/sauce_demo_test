@@ -1,0 +1,8 @@
+*.DS_Store
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE related files
+.vscode
+.idea/
